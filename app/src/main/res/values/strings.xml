@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!--发现人-->
     <string-array name="find_person">
         <item>范国柱</item>
