@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "E:\\WorkSpace\\smartInspection\\androidpdfviewer\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\default_scroll_handle_top.xml",
+        "source": "E:\\WorkSpace\\smartInspection\\androidpdfviewer\\build\\intermediates\\bundles\\debug\\res\\drawable\\default_scroll_handle_top.xml"
+    },
+    {
+        "merged": "D:\\Android\\AndroidStudioProjects\\smartInspection\\androidpdfviewer\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\default_scroll_handle_bottom.xml",
+        "source": "D:\\Android\\AndroidStudioProjects\\smartInspection\\androidpdfviewer\\build\\intermediates\\bundles\\debug\\res\\drawable\\default_scroll_handle_bottom.xml"
+    },
+    {
+        "merged": "E:\\WorkSpace\\smartInspection\\androidpdfviewer\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\default_scroll_handle_left.xml",
+        "source": "E:\\WorkSpace\\smartInspection\\androidpdfviewer\\build\\intermediates\\bundles\\debug\\res\\drawable\\default_scroll_handle_left.xml"
+    },
+    {
+        "merged": "D:\\Android\\AndroidStudioProjects\\smartInspection\\androidpdfviewer\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\default_scroll_handle_top.xml",
+        "source": "D:\\Android\\AndroidStudioProjects\\smartInspection\\androidpdfviewer\\build\\intermediates\\bundles\\debug\\res\\drawable\\default_scroll_handle_top.xml"
+    },
+    {
+        "merged": "E:\\WorkSpace\\smartInspection\\androidpdfviewer\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\default_scroll_handle_bottom.xml",
+        "source": "E:\\WorkSpace\\smartInspection\\androidpdfviewer\\build\\intermediates\\bundles\\debug\\res\\drawable\\default_scroll_handle_bottom.xml"
+    },
+    {
+        "merged": "D:\\Android\\AndroidStudioProjects\\smartInspection\\androidpdfviewer\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\default_scroll_handle_right.xml",
+        "source": "D:\\Android\\AndroidStudioProjects\\smartInspection\\androidpdfviewer\\build\\intermediates\\bundles\\debug\\res\\drawable\\default_scroll_handle_right.xml"
+    },
+    {
+        "merged": "E:\\WorkSpace\\smartInspection\\androidpdfviewer\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\default_scroll_handle_right.xml",
+        "source": "E:\\WorkSpace\\smartInspection\\androidpdfviewer\\build\\intermediates\\bundles\\debug\\res\\drawable\\default_scroll_handle_right.xml"
+    },
+    {
+        "merged": "D:\\Android\\AndroidStudioProjects\\smartInspection\\androidpdfviewer\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\default_scroll_handle_left.xml",
+        "source": "D:\\Android\\AndroidStudioProjects\\smartInspection\\androidpdfviewer\\build\\intermediates\\bundles\\debug\\res\\drawable\\default_scroll_handle_left.xml"
+    }
+]

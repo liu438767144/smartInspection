@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="80dp">
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:id="@+id/tv_inter_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/full_inspect_activity_li" />
+
+    <LinearLayout
+        android:layout_alignParentRight="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+           <LinearLayout
+               android:layout_marginLeft="15dp"
+               android:gravity="center_vertical"
+               android:orientation="horizontal"
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content">
+               <RadioGroup
+                   android:id="@+id/rg_inter_unit"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
+                   <RadioButton
+                       android:textSize="@dimen/full_inspect_activity_radioBtn"
+                       android:id="@+id/rb_correct"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="√"
+                       android:textColor="#76EE00"/>
+
+                   <RadioButton
+                       android:layout_marginLeft="20dp"
+                       android:textSize="@dimen/full_inspect_activity_radioBtn"
+                       android:id="@+id/rb_error"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="×"
+                       android:textColor="#CD0000"/>
+               </RadioGroup>
+                   <Button
+                       android:layout_marginLeft="35dp"
+                       android:textColor="@color/white"
+                       android:id="@+id/patrol_standard"
+                       android:background="@color/bg_toolbar"
+                       android:text="巡视标准"
+                       android:layout_width="wrap_content"
+                       android:layout_height="25dp" />
+
+                   <Button
+                       android:layout_marginLeft="35dp"
+                       android:id="@+id/data_input"
+                       android:layout_width="wrap_content"
+                       android:layout_height="25dp"
+                       android:background="@color/bg_toolbar"
+                       android:text="数据录入"
+                       android:textColor="@color/white" />
+           </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

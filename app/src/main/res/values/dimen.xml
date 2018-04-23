@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="rigth_tv_size">15sp</dimen>
+
+    <dimen name="full_inspect_activity_li">12dp</dimen>
+
+    <dimen name="full_inspect_activity_radioBtn">20dp</dimen>
+</resources>

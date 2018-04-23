@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.whut.smartinspection.widgets.CustomToolBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    app:left_tv_text="返回"
+    app:left_tv_visible="true"
+    app:right_btn_visible="false"
+    app:right_tv_text="提交"
+    app:right_tv_visible="true"
+    app:title_text="倒闸操作"
+    app:title_visible="true"
+    tools:context="com.whut.smartinspection.activity.SluiceOperationActivity">
+
+    <com.nextgeneration.ExpandingLayout
+        android:id="@+id/expanding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="单位："
+                android:textSize="15sp" />
+            <EditText
+                android:id="@+id/sluice_department"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="编号："
+                android:textSize="15sp" />
+            <EditText
+                android:id="@+id/sluice_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="操作任务："
+                android:textSize="15sp" />
+            <EditText
+                android:id="@+id/sluice_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发令人："
+                android:textSize="15sp" />
+            <EditText
+                android:id="@+id/sluice_sendPeople"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="15sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="受令人："
+                android:textSize="15sp" />
+            <EditText
+                android:id="@+id/sluice_receivePeople"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发令时间："
+                android:textSize="15sp" />
+            <EditText
+                android:id="@+id/sluice_sendDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="操作开始时间："
+                android:textSize="15sp" />
+            <EditText
+                android:id="@+id/sluice_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="操作结束时间："
+                android:textSize="15sp" />
+            <EditText
+                android:id="@+id/sluice_end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="操作类型："
+                android:textSize="15sp" />
+            <CheckBox
+                android:id="@+id/monitoring_operation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="监护下操作"
+                android:textSize="12sp"
+                android:checked="true"/>
+            <CheckBox
+                android:id="@+id/single_operation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="单人操作"
+                android:textSize="12sp"
+                android:checked="true"/>
+            <CheckBox
+                android:id="@+id/maintenance_operation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="检修人员操作"
+                android:textSize="12sp"
+                android:checked="true"/>
+        </LinearLayout>
+
+    </com.nextgeneration.ExpandingLayout>
+
+    <Button
+        android:id="@+id/expand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="收起"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#666666" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ll_remark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#666666" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="备注："
+                    android:textSize="15sp"/>
+                <EditText
+                    android:id="@+id/sluice_remark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_above="@id/ll_remark">
+            <ListView
+                android:id="@+id/sluice_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</com.whut.smartinspection.widgets.CustomToolBar>

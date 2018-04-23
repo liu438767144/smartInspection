@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.whut.smartinspection.widgets.CustomToolBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:left_tv_visible="true"
+    app:left_tv_text="返回"
+    app:right_btn_visible="false"
+    app:title_visible="true"
+    app:title_text="缺陷管理"
+    tools:context="com.whut.smartinspection.activity.DefectManagementActivity">
+
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/defect_registration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="80dp"
+                    android:src="@drawable/yun_wei"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="缺陷登记"
+                    android:textSize="30sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/defect_review"
+                android:layout_marginTop="80dp"
+                android:layout_below="@id/defect_registration"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginLeft="80dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/yun_wei"/>
+                <TextView
+                    android:textSize="30sp"
+                    android:gravity="center_vertical"
+                    android:text="缺陷审核"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/defect_treatment"
+                android:layout_marginTop="80dp"
+                android:layout_below="@id/defect_review"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginLeft="80dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/yun_wei"/>
+                <TextView
+                    android:textSize="30sp"
+                    android:gravity="center_vertical"
+                    android:text="缺陷处理"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/defective_acceptance"
+                android:layout_marginTop="80dp"
+                android:layout_below="@id/defect_review"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginLeft="80dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/yun_wei"/>
+                <TextView
+                    android:textSize="30sp"
+                    android:gravity="center_vertical"
+                    android:text="缺陷验收"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</com.whut.smartinspection.widgets.CustomToolBar>
