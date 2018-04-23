@@ -88,8 +88,8 @@ public class WaitingTaskActivity extends SwipeBackActivity {
 
     }
     private void initData(){
-        TaskItemDao taskItemDao = SApplication.getInstance().getDaoSession().getTaskItemDao();
-//        TaskItemDao taskItemDao = BaseDbComponent.getTaskItemDao();
+//        TaskItemDao taskItemDao = SApplication.getInstance().getDaoSession().getTaskItemDao();
+        TaskItemDao taskItemDao = BaseDbComponent.getTaskItemDao();
         QueryBuilder<TaskItem> qb = taskItemDao.queryBuilder();
         List<TaskItem> listTemp = qb.build().list();
         for (int i= 0;i<listTemp.size();i++){

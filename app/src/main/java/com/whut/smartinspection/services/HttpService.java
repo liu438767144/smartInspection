@@ -315,8 +315,8 @@ public class HttpService extends Service implements ITaskHandlerListener,IDetail
         if(flag == 1){
             JsonObject jsonObject = new JsonParser().parse((String)obj).getAsJsonObject();
             JsonArray jsonArray = jsonObject.getAsJsonArray("data");
-
             SubDao subDao = SApplication.getInstance().getDaoSession().getSubDao();
+            subDao.deleteAll();//初始时清空数据表
 
             for(int i = 0;i<jsonArray.size();i++) {
                 QueryBuilder<Sub> qbD = subDao.queryBuilder();
@@ -334,6 +334,7 @@ public class HttpService extends Service implements ITaskHandlerListener,IDetail
             JsonArray jsonArray = jsonObject.getAsJsonArray("data");
 
             DeviceTypeDao deviceTypeDao = SApplication.getInstance().getDaoSession().getDeviceTypeDao();
+            deviceTypeDao.deleteAll();
 
             for(int i = 0;i<jsonArray.size();i++) {
                 JsonElement idx = jsonArray.get(i);
@@ -353,6 +354,7 @@ public class HttpService extends Service implements ITaskHandlerListener,IDetail
             JsonArray jsonArray = jsonObject.getAsJsonArray("data");
 
             IntervalUnitDao intervalUnitDao = SApplication.getInstance().getDaoSession().getIntervalUnitDao();
+            intervalUnitDao.deleteAll();
 
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonElement idx = jsonArray.get(i);
@@ -370,6 +372,7 @@ public class HttpService extends Service implements ITaskHandlerListener,IDetail
             JsonArray jsonArray = jsonObject.getAsJsonArray("data");
 
             DeviceDao deviceDao = SApplication.getInstance().getDaoSession().getDeviceDao();
+            deviceDao.deleteAll();
 
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonElement idx = jsonArray.get(i);
@@ -389,6 +392,7 @@ public class HttpService extends Service implements ITaskHandlerListener,IDetail
             JsonArray jsonArray = jsonObject.getAsJsonArray("data");
 
             PatrolContentDao patrolContentDao = SApplication.getInstance().getDaoSession().getPatrolContentDao();
+            patrolContentDao.deleteAll();
 
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonElement idx = jsonArray.get(i);
@@ -418,8 +422,8 @@ public class HttpService extends Service implements ITaskHandlerListener,IDetail
 //            JsonArray jsonArray = jsonObject.getAsJsonArray("data");
 //
 //            TaskItemDao taskItemDao = SApplication.getInstance().getDaoSession().getTaskItemDao();
-//
 //            taskItemDao.deleteAll();
+//
 //            for (int i = 0; i < jsonArray.size(); i++) {
 //                JsonElement idx = jsonArray.get(i);
 //                JsonObject jo = idx.getAsJsonObject();
@@ -431,6 +435,7 @@ public class HttpService extends Service implements ITaskHandlerListener,IDetail
             JsonArray jsonArray = jsonObject.getAsJsonArray("data");
 
             PatrolWorkCardDao patrolWorkCardDao = SApplication.getInstance().getDaoSession().getPatrolWorkCardDao();
+            patrolWorkCardDao.deleteAll();
 
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonElement idx = jsonArray.get(i);
@@ -451,8 +456,12 @@ public class HttpService extends Service implements ITaskHandlerListener,IDetail
             JsonObject jsonObject = new JsonParser().parse((String) obj).getAsJsonObject();
             JsonArray jsonArray = jsonObject.getAsJsonArray("data");
             TaskItemDao taskItemDao = SApplication.getInstance().getDaoSession().getTaskItemDao();
+            taskItemDao.deleteAll();
             //记录下任务的数量(id是覆盖的)
             SApplication.setTaskCount(jsonArray.size());
+            //删除任务详细
+            PatrolTaskDetailDao patrolTaskDetailDao = SApplication.getInstance().getDaoSession().getPatrolTaskDetailDao();
+            patrolTaskDetailDao.deleteAll();
 
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonElement idx = jsonArray.get(i);
@@ -496,6 +505,7 @@ public class HttpService extends Service implements ITaskHandlerListener,IDetail
             JsonArray jsonArray = jsonObject.getAsJsonArray("data");
 
             SluiceOperationContentDao sluiceOperationContentDao = SApplication.getInstance().getDaoSession().getSluiceOperationContentDao();
+            sluiceOperationContentDao.deleteAll();
 
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonElement idx = jsonArray.get(i);

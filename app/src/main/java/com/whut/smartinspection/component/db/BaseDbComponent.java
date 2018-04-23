@@ -38,32 +38,19 @@ public class BaseDbComponent {
     private static SluiceOperationRecordDao sluiceOperationRecordDao = SApplication.getInstance().getDaoSession().getSluiceOperationRecordDao();
     private static SluiceHeadPageDao sluiceHeadPageDao = SApplication.getInstance().getDaoSession().getSluiceHeadPageDao();
     private static WholeSluiceCardDao wholeSluiceCardDao = SApplication.getInstance().getDaoSession().getWholeSluiceCardDao();
-    private static SubDao subDao = SApplication.getInstance().getDaoSession().getSubDao();
-    private static DeviceTypeDao deviceTypeDao = SApplication.getInstance().getDaoSession().getDeviceTypeDao();
-    private static IntervalUnitDao intervalUnitDao = SApplication.getInstance().getDaoSession().getIntervalUnitDao();
-    private static DeviceDao deviceDao = SApplication.getInstance().getDaoSession().getDeviceDao();
-    private static PatrolContentDao patrolContentDao = SApplication.getInstance().getDaoSession().getPatrolContentDao();
-    private static PatrolWorkCardDao patrolWorkCardDao = SApplication.getInstance().getDaoSession().getPatrolWorkCardDao();
     private static TaskItemDao taskItemDao = SApplication.getInstance().getDaoSession().getTaskItemDao();
-    private static PatrolTaskDetailDao patrolTaskDetailDao = SApplication.getInstance().getDaoSession().getPatrolTaskDetailDao();
-    private static SluiceOperationContentDao sluiceOperationContentDao = SApplication.getInstance().getDaoSession().getSluiceOperationContentDao();
+
+    public static TaskItemDao getTaskItemDao(){
+        return taskItemDao;
+    }
 
     public static void deleteData(){
-        subDao.deleteAll();
-        taskItemDao.deleteAll();
-        deviceTypeDao.deleteAll();
-        intervalUnitDao.deleteAll();
-        deviceDao.deleteAll();
-        patrolContentDao.deleteAll();
-        patrolTaskDetailDao.deleteAll();
-        patrolWorkCardDao.deleteAll();
         wholePatrolCardDao.deleteAll();
         perPatrolCardDao.deleteAll();
         recordDao.deleteAll();
         defectRegistrationRecordDao.deleteAll();
         openDoorRecordDao.deleteAll();
         sluiceOperationRecordDao.deleteAll();
-        sluiceOperationContentDao.deleteAll();
         sluiceHeadPageDao.deleteAll();
         wholeSluiceCardDao.deleteAll();
     }
