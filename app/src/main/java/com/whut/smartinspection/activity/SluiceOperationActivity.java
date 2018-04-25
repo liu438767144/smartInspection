@@ -180,7 +180,8 @@ public class SluiceOperationActivity extends SwipeBackActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                sluiceDepartment.setText(substationName);
+//                sluiceDepartment.setText(substationName);
+                sluiceDepartment.setText("锦江500kV变电站");
                 sluiceId.setText("锦江变201712007");
                 sluiceTask.setText(taskName);
                 sluiceSendPeople.setText(worker);
@@ -225,7 +226,7 @@ public class SluiceOperationActivity extends SwipeBackActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.toolbar_right_tv: {//提交
-                sluiceEnd.setText(TimeUtils.setCurrentTime3());//生成完成时间
+                sluiceEnd.setText(TimeUtils.setCurrentTime3());//完成时间
                 savaHeadPage();
                 if (!ButtonUtils.isFastDoubleClick(R.id.btn_login_user_login)) {
                     QueryBuilder<SluiceOperationRecord> qbsluiceOperationRecord = sluiceOperationRecordDao.queryBuilder();
