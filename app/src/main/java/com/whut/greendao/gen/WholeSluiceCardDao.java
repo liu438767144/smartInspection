@@ -24,7 +24,7 @@ public class WholeSluiceCardDao extends AbstractDao<WholeSluiceCard, Long> {
      * Can be used for QueryBuilder and for referencing column names.
      */
     public static class Properties {
-        public final static Property Id = new Property(0, Long.class, "id", true, "id");
+        public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property PatrolHeadPageId = new Property(1, String.class, "patrolHeadPageId", false, "PATROL_HEAD_PAGE_ID");
         public final static Property Flag = new Property(2, boolean.class, "flag", false, "FLAG");
     }
@@ -45,7 +45,7 @@ public class WholeSluiceCardDao extends AbstractDao<WholeSluiceCard, Long> {
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"WHOLE_SLUICE_CARD\" (" + //
-                "\"id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
+                "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"PATROL_HEAD_PAGE_ID\" TEXT," + // 1: patrolHeadPageId
                 "\"FLAG\" INTEGER NOT NULL );"); // 2: flag
     }

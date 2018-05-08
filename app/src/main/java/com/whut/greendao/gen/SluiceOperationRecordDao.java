@@ -50,7 +50,7 @@ public class SluiceOperationRecordDao extends AbstractDao<SluiceOperationRecord,
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"SLUICE_OPERATION_RECORD\" (" + //
-                "\"id\" INTEGER PRIMARY KEY ," + // 0: id
+                "\"id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"IDD\" TEXT," + // 1: idd
                 "\"VALUE_CHAR\" TEXT," + // 2: valueChar
                 "\"SLUICE_OPERATION_RECORD_DATE\" TEXT," + // 3: sluiceOperationRecordDate
