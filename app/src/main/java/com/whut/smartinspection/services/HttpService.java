@@ -32,6 +32,7 @@ import com.whut.greendao.gen.PatrolContentDao;
 import com.whut.greendao.gen.PatrolTaskDetailDao;
 import com.whut.greendao.gen.PatrolWorkCardDao;
 import com.whut.greendao.gen.RecordDao;
+import com.whut.greendao.gen.SluiceHeadPageDao;
 import com.whut.greendao.gen.SluiceOperationContentDao;
 import com.whut.greendao.gen.SluiceOperationRecordDao;
 import com.whut.greendao.gen.SubDao;
@@ -52,6 +53,7 @@ import com.whut.smartinspection.model.PatrolContent;
 import com.whut.smartinspection.model.PatrolTaskDetail;
 import com.whut.smartinspection.model.PatrolWorkCard;
 import com.whut.smartinspection.model.Record;
+import com.whut.smartinspection.model.SluiceHeadPage;
 import com.whut.smartinspection.model.SluiceOperationContent;
 import com.whut.smartinspection.model.SluiceOperationRecord;
 import com.whut.smartinspection.model.Sub;
@@ -206,6 +208,7 @@ public class HttpService extends Service implements ITaskHandlerListener,IDetail
                 QueryBuilder<WholeSluiceCard> qbwholePatrolCard = wholeSluiceCardDao.queryBuilder();
                 List<WholeSluiceCard> wholeSluiceCards = qbwholePatrolCard.list();
                 SluiceOperationRecordDao sluiceOperationRecordDao = SApplication.getInstance().getDaoSession().getSluiceOperationRecordDao();
+                //提交操作数据
                 for (WholeSluiceCard wholeSluiceCard : wholeSluiceCards){
                     Long wholeID = wholeSluiceCard.getId();
                     QueryBuilder<SluiceOperationRecord> qbsluiceOperationRecord = sluiceOperationRecordDao.queryBuilder();
@@ -213,6 +216,14 @@ public class HttpService extends Service implements ITaskHandlerListener,IDetail
                     wholeSluiceCard.setSluiceOperationRecords(sluiceOperationRecords);
                     String temp = wholeSluiceCard.toString();
                     TaskComponent.commitSluiceTask(HttpService.this,temp);
+                }
+                //提交表头数据
+                SluiceHeadPageDao sluiceHeadPageDao = SApplication.getInstance().getDaoSession().getSluiceHeadPageDao();
+                QueryBuilder<SluiceHeadPage> qbsluiceHeadPage = sluiceHeadPageDao.queryBuilder();
+                List<SluiceHeadPage> sluiceHeadPages = qbsluiceHeadPage.list();
+                for(SluiceHeadPage sluiceHeadPage : sluiceHeadPages){
+                    String temp = sluiceHeadPage.toString();
+                    TaskComponent.commitSluiceHeadPage(HttpService.this,temp);
                 }
             }
         }

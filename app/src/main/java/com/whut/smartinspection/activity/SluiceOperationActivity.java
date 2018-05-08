@@ -16,6 +16,7 @@ import com.whut.greendao.gen.PatrolWorkCardDao;
 import com.whut.greendao.gen.SluiceHeadPageDao;
 import com.whut.greendao.gen.SluiceOperationContentDao;
 import com.whut.greendao.gen.SluiceOperationRecordDao;
+import com.whut.greendao.gen.TaskItemDao;
 import com.whut.greendao.gen.WholeSluiceCardDao;
 import com.whut.smartinspection.R;
 import com.whut.smartinspection.adapters.SluiceOperationAdapter;
@@ -91,7 +92,7 @@ public class SluiceOperationActivity extends SwipeBackActivity {
     private String worker;//发令人 = 受令人
     private Long wholeId = 0L;//wholeId对应一个作业卡
     private String substationName;//变电站名称
-    private String patrolNameId;
+    private String patrolNameId;//作业卡名称的id
     private String patrolHeadPageId;
     private List<PatrolWorkCard> patrolWorkCards;
     private SluiceOperationAdapter sluiceOperationAdapter;
@@ -108,6 +109,7 @@ public class SluiceOperationActivity extends SwipeBackActivity {
     WholeSluiceCardDao wholeSluiceCardDao = SApplication.getInstance().getDaoSession().getWholeSluiceCardDao();
     PatrolTaskDetailDao patrolTaskDetailDao = SApplication.getInstance().getDaoSession().getPatrolTaskDetailDao();
     PatrolWorkCardDao patrolWorkCardDao = SApplication.getInstance().getDaoSession().getPatrolWorkCardDao();
+    TaskItemDao taskItemDao = SApplication.getInstance().getDaoSession().getTaskItemDao();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,40 +128,48 @@ public class SluiceOperationActivity extends SwipeBackActivity {
 
         insertData(patrolTaskDetails);//初始化数据库数据
         initData();//初始化界面显示的内容
+        changeStatue();
+    }
+
+    private void changeStatue() {
+        item.setStatus(1);//改为1表示已经初始化
+        taskItemDao.insertOrReplace(item);
     }
 
     //初始化数据库中的数据
     private void insertData(List<PatrolTaskDetail> patrolTaskDetails) {
-        for (PatrolTaskDetail patrolTaskDetail : patrolTaskDetails) {
-            patrolNameId = patrolTaskDetail.getPatrolNameId();
-            patrolHeadPageId = patrolTaskDetail.getPatrolHeadPageId();
-            //按照作业卡的id保存数据
-            WholeSluiceCard wholeSluiceCard = new WholeSluiceCard(null, patrolHeadPageId, false);
-            wholeSluiceCardDao.insertOrReplace(wholeSluiceCard);
-            wholeId = wholeSluiceCard.getId();
-            //通过patrolNameId查找对应的任务内容
-            QueryBuilder<SluiceOperationContent> qbSluiceOperationContent = sluiceOperationContentDao.queryBuilder();
-            sluiceOperationContents = qbSluiceOperationContent.where(SluiceOperationContentDao.Properties.PatrolNameId.eq(patrolNameId)).list();
-            for (int i = 0; i < sluiceOperationContents.size(); i++) {
-                SluiceOperationRecord sluiceOperationRecord = new SluiceOperationRecord();
-                sluiceOperationRecord.setIdd(taskId);
-                sluiceOperationRecord.setValueChar(" ");
-                sluiceOperationRecord.setSluiceOperationContentId(sluiceOperationContents.get(i).getIdd());
-                sluiceOperationRecord.setSluiceOperationRecordDate(TimeUtils.setCurrentTime3());
-                sluiceOperationRecord.setWholeID(wholeId);
-                sluiceOperationRecordDao.insertOrReplace(sluiceOperationRecord);
-            }
+        if (item.getStatus() == 0) {
+            for (PatrolTaskDetail patrolTaskDetail : patrolTaskDetails) {
+                patrolNameId = patrolTaskDetail.getPatrolNameId();
+                patrolHeadPageId = patrolTaskDetail.getPatrolHeadPageId();
+                //按照作业卡的id保存数据
+                WholeSluiceCard wholeSluiceCard = new WholeSluiceCard(null, patrolHeadPageId, false);
+                wholeSluiceCardDao.insertOrReplace(wholeSluiceCard);
+                wholeId = wholeSluiceCard.getId();
+                //通过patrolNameId查找对应的任务内容
+                QueryBuilder<SluiceOperationContent> qbSluiceOperationContent = sluiceOperationContentDao.queryBuilder();
+                sluiceOperationContents = qbSluiceOperationContent.where(SluiceOperationContentDao.Properties.PatrolNameId.eq(patrolNameId)).list();
+                for (int i = 0; i < sluiceOperationContents.size(); i++) {
+                    SluiceOperationRecord sluiceOperationRecord = new SluiceOperationRecord();
+                    sluiceOperationRecord.setIdd(taskId);
+                    sluiceOperationRecord.setValueChar(" ");
+                    sluiceOperationRecord.setSluiceOperationContentId(sluiceOperationContents.get(i).getIdd());
+                    sluiceOperationRecord.setSluiceOperationRecordDate(TimeUtils.setCurrentTime3());
+                    sluiceOperationRecord.setWholeID(wholeId);
+                    sluiceOperationRecordDao.insertOrReplace(sluiceOperationRecord);
+                }
 
-            sluiceOperationContentList.clear();
-            for (SluiceOperationContent sluiceOperationContent : sluiceOperationContents) {
-                sluiceOperationContentList.add(sluiceOperationContent);
-            }
+                sluiceOperationContentList.clear();
+                for (SluiceOperationContent sluiceOperationContent : sluiceOperationContents) {
+                    sluiceOperationContentList.add(sluiceOperationContent);
+                }
 
-            QueryBuilder<SluiceOperationRecord> qbSluiceOperationRecord = sluiceOperationRecordDao.queryBuilder();
-            sluiceOperationRecords = qbSluiceOperationRecord.list();
-            sluiceOperationRecordList.clear();
-            for (SluiceOperationRecord sluiceOperationRecord : sluiceOperationRecords) {
-                sluiceOperationRecordList.add(sluiceOperationRecord);
+                QueryBuilder<SluiceOperationRecord> qbSluiceOperationRecord = sluiceOperationRecordDao.queryBuilder();
+                sluiceOperationRecords = qbSluiceOperationRecord.list();
+                sluiceOperationRecordList.clear();
+                for (SluiceOperationRecord sluiceOperationRecord : sluiceOperationRecords) {
+                    sluiceOperationRecordList.add(sluiceOperationRecord);
+                }
             }
         }
     }
@@ -229,8 +239,6 @@ public class SluiceOperationActivity extends SwipeBackActivity {
                 sluiceEnd.setText(TimeUtils.setCurrentTime3());//完成时间
                 savaHeadPage();
                 if (!ButtonUtils.isFastDoubleClick(R.id.btn_login_user_login)) {
-                    QueryBuilder<SluiceOperationRecord> qbsluiceOperationRecord = sluiceOperationRecordDao.queryBuilder();
-                    sluiceOperationRecords = qbsluiceOperationRecord.list();//(用于断点调试)
                     Intent intent = new Intent();
                     intent.putExtra("flag", "4");
                     intent.setAction("com.whut.smartinspection.activity.FullInspectActivity");

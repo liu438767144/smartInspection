@@ -209,8 +209,8 @@ public class TaskComponent extends BaseHttpComponent {
            }
        });
     }
+    //获取通用任务列表
     public static void getCommonTaskList(final ITaskHandlerListener listener, final int flag){
-        //获取通用任务列表
         sessionID = SApplication.getSessionID();
         OkHttpUtils.get().addHeader("Cookie", sessionID).
                 url(URL_COMMON_TASK_LIST).
@@ -381,6 +381,34 @@ public class TaskComponent extends BaseHttpComponent {
         sessionID = SApplication.getSessionID();
         OkHttpUtils.postString().addHeader("Cookie", sessionID).
                 url(URL_SluiceOperationRecord).mediaType(JSON).content(value).
+                build().readTimeOut(180000).writeTimeOut(180000).execute(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                String message = "network error";
+                if (e != null) {
+                    message = e.getMessage();
+                }
+                listener.onTaskFailure(message, EMsgType.GET_SUB_DATA_FAILURE);
+            }
+
+            @Override
+            public void onResponse(String response, int id) {
+                CustomParser.ResponseObject ro = CustomParser.parse(response);
+                if (ro.getCode() == 200) {
+                    listener.onTaskSuccess(ro.getMsg(), EMsgType.GET_SUB_DATA_SUCCESS,11);
+                } else {
+                    listener.onTaskFailure(ro.getMsg(), EMsgType.GET_SUB_DATA_FAILURE);
+                }
+            }
+        });
+    }
+
+    //提交倒闸操作表头数据
+    public static void commitSluiceHeadPage(final ITaskHandlerListener listener,String value) {
+        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        sessionID = SApplication.getSessionID();
+        OkHttpUtils.postString().addHeader("Cookie", sessionID).
+                url(URL_SluiceHeadPage).mediaType(JSON).content(value).
                 build().readTimeOut(180000).writeTimeOut(180000).execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {

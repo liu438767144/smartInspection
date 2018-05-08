@@ -12,7 +12,7 @@ public class BaseHttpComponent {
 	//阿里云服务器IP
 	public static final String IP = "http://116.62.59.24:8080/";
 	//本地测试IP
-//	public static final String IP = "http://10.139.17.223:8080/";
+//	public static final String IP = "http://192.168.0.106:8080/";
 	//锦江变电站服务器IP
 //	public static final String IP = "http://192.168.1.117:8080/";
 
@@ -44,6 +44,8 @@ public class BaseHttpComponent {
 	public static final String URL_DefectRecord =IP + "BDZXJService/Android/DefectRecord";
 	//提交倒闸操作记录
 	public static final String URL_SluiceOperationRecord =IP + "BDZXJService/Android/SluiceOperationRecord";
+	//提交倒闸操作表头信息
+	public static final String URL_SluiceHeadPage =IP + "BDZXJService/Android/SluiceHeadPage";
 	//通用任务列表
 	public static final String URL_COMMON_TASK_LIST=IP + "BDZXJService/Android/Task";
 	//获得详细任务内容

@@ -173,7 +173,7 @@ public class SluiceHeadPage {
         final StringBuffer sb = new StringBuffer("{");
         sb.append("\"id\":\"")
                 .append(id).append('\"');
-        sb.append("\"taskId\":\"")
+        sb.append(",\"taskId\":\"")
                 .append(taskId).append('\"');
         sb.append(",\"sluiceDepartment\":\"")
                 .append(sluiceDepartment).append('\"');

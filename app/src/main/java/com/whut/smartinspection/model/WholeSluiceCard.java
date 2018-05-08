@@ -5,9 +5,12 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Keep;
 import org.greenrobot.greendao.annotation.Property;
 import org.greenrobot.greendao.annotation.ToMany;
+
 import java.util.List;
+
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.DaoException;
+
 import com.whut.greendao.gen.DaoSession;
 import com.whut.greendao.gen.SluiceOperationRecordDao;
 import com.whut.greendao.gen.WholeSluiceCardDao;
@@ -19,7 +22,6 @@ import com.whut.greendao.gen.WholeSluiceCardDao;
 
 @Entity
 public class WholeSluiceCard {
-    @Property(nameInDb = "id")
     @Id(autoincrement = true)
     private Long id;
 
@@ -28,13 +30,17 @@ public class WholeSluiceCard {
     @ToMany(referencedJoinProperty = "fid")
     private List<SluiceOperationRecord> sluiceOperationRecords;
 
-    private boolean flag ;//标记是否提交到服务器
+    private boolean flag;//标记是否提交到服务器
 
-    /** Used to resolve relations */
+    /**
+     * Used to resolve relations
+     */
     @Generated(hash = 2040040024)
     private transient DaoSession daoSession;
 
-    /** Used for active entity operations. */
+    /**
+     * Used for active entity operations.
+     */
     @Generated(hash = 2126595006)
     private transient WholeSluiceCardDao myDao;
 
@@ -73,27 +79,8 @@ public class WholeSluiceCard {
         this.flag = flag;
     }
 
-    /**
-     * To-many relationship, resolved on first access (and after reset).
-     * Changes to to-many relations are not persisted, make changes to the target entity.
-     */
-    @Generated(hash = 1952096562)
+    @Keep
     public List<SluiceOperationRecord> getSluiceOperationRecords() {
-        if (sluiceOperationRecords == null) {
-            final DaoSession daoSession = this.daoSession;
-            if (daoSession == null) {
-                throw new DaoException("Entity is detached from DAO context");
-            }
-            SluiceOperationRecordDao targetDao = daoSession
-                    .getSluiceOperationRecordDao();
-            List<SluiceOperationRecord> sluiceOperationRecordsNew = targetDao
-                    ._queryWholeSluiceCard_SluiceOperationRecords(id);
-            synchronized (this) {
-                if (sluiceOperationRecords == null) {
-                    sluiceOperationRecords = sluiceOperationRecordsNew;
-                }
-            }
-        }
         return sluiceOperationRecords;
     }
 
@@ -101,7 +88,9 @@ public class WholeSluiceCard {
         this.sluiceOperationRecords = sluiceOperationRecords;
     }
 
-    /** Resets a to-many relationship, making the next get call to query for a fresh result. */
+    /**
+     * Resets a to-many relationship, making the next get call to query for a fresh result.
+     */
     @Generated(hash = 743822179)
     public synchronized void resetSluiceOperationRecords() {
         sluiceOperationRecords = null;
@@ -143,7 +132,9 @@ public class WholeSluiceCard {
         myDao.update(this);
     }
 
-    /** called by internal mechanisms, do not call yourself. */
+    /**
+     * called by internal mechanisms, do not call yourself.
+     */
     @Generated(hash = 1739841491)
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;
@@ -160,5 +151,4 @@ public class WholeSluiceCard {
         sb.append('}');
         return sb.toString();
     }
-
 }

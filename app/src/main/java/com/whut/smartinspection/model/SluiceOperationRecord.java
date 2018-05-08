@@ -14,7 +14,7 @@ import java.util.Date;
 @Entity
 public class SluiceOperationRecord {
     @Property(nameInDb = "id")
-    @Id()
+    @Id(autoincrement = true)
     private Long id;//greenDao自动生成的ID
 
     private String idd;//任务ID
@@ -102,7 +102,7 @@ public class SluiceOperationRecord {
         final StringBuilder sb = new StringBuilder("{");
         sb.append("\"id\":\"")
                 .append(id).append('\"');
-        sb.append("\"idd\":\"")
+        sb.append(",\"idd\":\"")
                 .append(idd).append('\"');
         sb.append(",\"valueChar\":\"")
                 .append(valueChar).append('\"');

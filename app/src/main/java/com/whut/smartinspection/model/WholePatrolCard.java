@@ -62,6 +62,7 @@ public class WholePatrolCard {
     public void setPatrolHeadPageId(String patrolHeadPageId) {
         this.patrolHeadPageId = patrolHeadPageId;
     }
+
     @Keep
     public List<Record> getRecords() {
         return records;
