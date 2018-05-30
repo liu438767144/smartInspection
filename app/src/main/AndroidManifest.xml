@@ -119,11 +119,13 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity android:name=".activity.WorkingHelpActivity" />
         <activity android:name=".activity.FullTourActivity" />
-        <activity android:name=".activity.FullInspectActivity" />
+        <activity android:name=".activity.FullInspectActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
         <activity android:name=".activity.DefectManagementActivity" />
         <activity
             android:name=".activity.DefectRegistrationActivity"
             android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <activity android:name=".activity.DefectReviewActivity" />
         <activity android:name=".activity.KnowledgeCenterActivity" />

@@ -20,10 +20,11 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_centerVertical="true"
-            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/defect_registration"
@@ -35,7 +36,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="80dp"
-                    android:src="@drawable/yun_wei"/>
+                    android:src="@drawable/yun_wei" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -47,62 +48,71 @@
 
             <LinearLayout
                 android:id="@+id/defect_review"
-                android:layout_marginTop="80dp"
-                android:layout_below="@id/defect_registration"
-                android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@id/defect_registration"
+                android:layout_marginTop="80dp"
+                android:orientation="horizontal"
+                android:visibility="invisible">
+
                 <ImageView
-                    android:layout_marginLeft="80dp"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/yun_wei"/>
+                    android:layout_marginLeft="80dp"
+                    android:src="@drawable/yun_wei" />
+
                 <TextView
-                    android:textSize="30sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:text="缺陷审核"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
+                    android:textSize="30sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/defect_treatment"
-                android:layout_marginTop="80dp"
-                android:layout_below="@id/defect_review"
-                android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@id/defect_review"
+                android:layout_marginTop="80dp"
+                android:orientation="horizontal"
+                android:visibility="invisible">
+
                 <ImageView
-                    android:layout_marginLeft="80dp"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/yun_wei"/>
+                    android:layout_marginLeft="80dp"
+                    android:src="@drawable/yun_wei" />
+
                 <TextView
-                    android:textSize="30sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:text="缺陷处理"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
+                    android:textSize="30sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/defective_acceptance"
-                android:layout_marginTop="80dp"
-                android:layout_below="@id/defect_review"
-                android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@id/defect_review"
+                android:layout_marginTop="80dp"
+                android:orientation="horizontal"
+                android:visibility="invisible">
+
                 <ImageView
-                    android:layout_marginLeft="80dp"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/yun_wei"/>
+                    android:layout_marginLeft="80dp"
+                    android:src="@drawable/yun_wei" />
+
                 <TextView
-                    android:textSize="30sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:text="缺陷验收"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
+                    android:textSize="30sp" />
             </LinearLayout>
 
         </LinearLayout>

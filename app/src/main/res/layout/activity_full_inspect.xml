@@ -24,7 +24,6 @@
         android:layout_marginRight="20dp"
         android:orientation="vertical">
         <LinearLayout
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -47,24 +46,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="间隔名称："
-                android:textSize="16sp" />
-            <EditText
-                android:cursorVisible="false"
-                android:focusableInTouchMode="false"
-                android:focusable="false"
-                android:id="@+id/name_dis"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="设备类型："
                 android:textSize="16sp" />
             <EditText
@@ -76,6 +57,26 @@
                 android:layout_height="wrap_content"
                 android:textSize="16sp" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="间隔名称："
+                android:textSize="16sp" />
+            <EditText
+                android:enabled="false"
+                android:cursorVisible="false"
+                android:focusableInTouchMode="false"
+                android:focusable="false"
+                android:id="@+id/name_dis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp" />
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -109,31 +110,30 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#CCCCCC" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <com.wx.wheelview.widget.WheelView
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:divider="#00000000"
-        android:dividerHeight="50dp"
-        android:descendantFocusability="afterDescendants"
-        android:id="@+id/wheelview"
-        android:minHeight="100dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#CCCCCC" />
-    <Button
-        android:visibility="gone"
-        android:layout_marginTop="2dp"
-        android:textColor="@color/white"
-        android:id="@+id/btn_next"
-        android:background="@color/bg_toolbar"
-        android:layout_gravity="center_horizontal"
-        android:text="进入下一个设备"
-        android:textSize="16sp"
-        android:layout_width="match_parent"
-        android:layout_height="35dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ListView
+                android:id="@+id/patrol_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#666666" />
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+
 </com.whut.smartinspection.widgets.CustomToolBar>

@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:text="√"
                 android:textColor="#76EE00"
-                android:textSize="20sp"/>
+                android:textSize="30sp"/>
 
             <RadioButton
                 android:id="@+id/rb_false"
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:text="×"
                 android:textColor="#CD0000"
-                android:textSize="20sp"/>
+                android:textSize="30sp"/>
         </RadioGroup>
 
         <LinearLayout
